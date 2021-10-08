@@ -1,0 +1,33 @@
+server:
+  port: 19002
+
+spring:
+  application:
+    name: user-provider
+  security:
+    user:
+      name: root
+      password: 123456
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      rate: 1   #采用比例
+  boot:
+    admin:
+      client:
+        url: http://localhost:15001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123@localhost:8001/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'   #开启所有端点
+  endpoint:
+    health:
+      show-details: always
